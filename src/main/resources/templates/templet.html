@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://lib.baomitu.com/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//lib.baomitu.com/font-awesome/5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="../static/css/books.css" th:href="@{/css/books.css}" rel="stylesheet">
+    <script src="https://lib.baomitu.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://lib.baomitu.com/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+
+<div th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-md-2" href="#"><span style="margin-left: 35px">HOME</span></a>
+    <span class="text-white px-3" sec:authentication="name" id="me">XXX</span>
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav px-3 text-justify">
+            <a th:href="@{/findUser/(stuId=admin)}">
+                <li class="nav-item">
+                    <i class="far fa-bell mt-1" style="font-size:26px;color:#F8F9FA"></i>
+                </li>
+            </a>
+            <li class="nav-item mr-2" id="notification">
+                <i class="fa fa-circle" style="font-size:1px;color:#ff5f5f"></i>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/logout}">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+
+<div th:fragment="list">
+                <li class="nav-item">
+                    <a class="nav-link active list" th:href="@{/home}">
+                        书籍列表
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link list" th:href="@{/search}">
+                        书籍查找
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link list" th:href="@{/purchaseList}">
+                        订单列表
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link list" th:href="@{/cartList}">
+                        购物车
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link list" th:href="@{/users}">
+                        用户列表
+                    </a>
+                </li>
+</div>
+
+<div th:fragment="bookList">
+
+</div>
+
+<script src="../static/js/templet.js" th:src="@{/js/templet.js}"></script>
+</body>
+</html>
